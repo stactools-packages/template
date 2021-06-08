@@ -1,4 +1,4 @@
-FROM stactools:latest
+FROM stactools-subpackage:latest
 
 RUN conda install -c conda-forge pandoc
 

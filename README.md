@@ -12,3 +12,4 @@ Template repostitory for [stactools](https://github.com/stac-utils/stactools) su
 5. Update the LICENSE with your company's information (or whomever holds the copyright).
 6. Update the envionment name in `environment.yml`.
 7. Update the environment variables in `.github/workflows/release.yml` to the appropriate values to publish for your organization.
+8. Update all scripts in the `docker` directory to refer to `stactools-{NAME}` and `stactools-{NAME}-dev`.

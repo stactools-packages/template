@@ -9,3 +9,4 @@ Template repostitory for [stactools](https://github.com/stac-utils/stactools) su
 2. Update `setup.cfg` with your package name, description, and such.
 3. Rename `src/stactools/subpackage` to `src/stactools/{NAME}`.
 4. Rewrite this README to provide information about how to use your subpackage.
+5. Update the LICENSE with your company's information (or whomever holds the copyright).

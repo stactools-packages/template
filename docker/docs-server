@@ -19,6 +19,6 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         -v `pwd`:/opt/src \
         -w /opt/src/docs \
         --entrypoint /bin/bash \
-        stactools-subpackage-dev:latest \
+        stactools-package-dev:latest \
         -c "make livehtml"
 fi

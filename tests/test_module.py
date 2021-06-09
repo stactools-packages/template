@@ -1,8 +1,8 @@
 import unittest
 
-import stactools.subpackage
+import stactools.package
 
 
 class TestModule(unittest.TestCase):
     def test_version(self):
-        self.assertIsNotNone(stactools.subpackage.__version__)
+        self.assertIsNotNone(stactools.package.__version__)

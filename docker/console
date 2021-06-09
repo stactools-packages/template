@@ -18,5 +18,5 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         -v `pwd`:/opt/src \
         -p 8000:8000 \
         --entrypoint /bin/bash \
-        stactools-subpackage-dev:latest
+        stactools-package-dev:latest
 fi

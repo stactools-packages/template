@@ -19,7 +19,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         -v ${HOME}/.planet.json:/root/.planet.json:ro \
         --entrypoint jupyter \
         -p 8888:8888 \
-        stactools-subpackage:latest \
+        stactools-package:latest \
         notebook \
         --ip=0.0.0.0 \
         --port=8888 \

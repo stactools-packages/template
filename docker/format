@@ -17,5 +17,5 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     docker run --rm -it \
         -v `pwd`:/opt/src \
         --entrypoint /opt/src/scripts/format \
-        stactools-subpackage-dev:latest
+        stactools-package-dev:latest
 fi

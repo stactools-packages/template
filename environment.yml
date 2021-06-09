@@ -1,4 +1,4 @@
-name: stactools-subpackage
+name: stactools-package
 channels:
   - conda-forge
   - defaults

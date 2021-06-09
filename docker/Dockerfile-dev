@@ -1,7 +1,7 @@
-FROM stactools-subpackage:latest
+FROM stactools-package:latest
 
 RUN conda install -c conda-forge pandoc
 
-COPY . /src/stactools-subpackage
-RUN pip install -r /src/stactools-subpackage/requirements-dev.txt
-WORKDIR /src/stactools-subpackage
+COPY . /src/stactools-package
+RUN pip install -r /src/stactools-package/requirements-dev.txt
+WORKDIR /src/stactools-package

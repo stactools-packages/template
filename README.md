@@ -1,4 +1,4 @@
-# stactools-package-template
+# template
 
 Template repostitory for [stactools](https://github.com/stac-utils/stactools) packages.
 

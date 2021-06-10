@@ -1,5 +1,6 @@
 FROM continuumio/miniconda3
 
+RUN apt-get update && apt-get install build-essential -y
 RUN conda update conda && conda install pip
 
 COPY environment.yml /tmp/environment.yml

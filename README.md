@@ -13,3 +13,4 @@ Template repostitory for [stactools](https://github.com/stac-utils/stactools) pa
 6. Update the environment name in `environment.yml`.
 7. Update the environment variables in `.github/workflows/release.yml` to the appropriate values to publish for your organization.
 8. Update all scripts in the `docker` directory to refer to `stactools-{NAME}` and `stactools-{NAME}-dev`.
+9. Run `sphinx-quickstart` in the `docs` directory to create the documentation template.

@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+set -e
+
+name="$(basename $(cd "$(dirname $(dirname "$0"))"; pwd -P))"
+underscore_name=${name//-/_}
+
+for file in $(find . \( -type d -name .git -prune \) -o -type f); do
+    file_name=$(basename "$file")
+    if [ "$file_name" = "README.md" ] || [ "$file_name" = "rename" ] || [ "$file_name" = "setup.cfg" ] || [ "$file_name" = "publish" ]; then
+        echo "Skipping $file"
+        continue
+    fi
+    set +e
+    sed -i '' -e "s/stactools-package/stactools-${name}/g" $file
+    sed -i '' -e "s/stactools.package/stactools.${underscore_name}/g" $file
+    sed -i '' -e "s/stactools_package/stactools_${underscore_name}/g" $file
+    set -e
+done
+
+if [ -d src/stactools/package ]; then
+    mv src/stactools/package "src/stactools/$underscore_name"
+fi
+
+echo "Don't forget to manually update setup.cfg and README.md"

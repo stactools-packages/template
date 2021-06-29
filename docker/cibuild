@@ -14,8 +14,8 @@ Runs CI in the docker dev container.
 }
 
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
-    ./docker/build
+    ./docker/build --pull
     docker run --rm \
-        --entrypoint /src/stactools-package/scripts/cibuild \
-        stactools-package-dev:latest
+        --entrypoint scripts/cibuild \
+        stacutils/stactools-package:latest-dev
 fi

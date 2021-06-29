@@ -13,7 +13,7 @@ for file in $(find . \( -type d -name .git -prune \) -o -type f); do
     fi
     set +e
     sed -i '' -e "s/stactools-package/stactools-${name}/g" $file
-    sed -i '' -e "s/stactools.package/stactools.${underscore_name}/g" $file
+    sed -i '' -e "s/stactools\.package/stactools.${underscore_name}/g" $file
     sed -i '' -e "s/stactools_package/stactools_${underscore_name}/g" $file
     sed -i '' -e "s;stactools/package;stactools/${name};g" $file
     set -e

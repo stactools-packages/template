@@ -20,7 +20,7 @@ for file in $(find . \( -type d -name .git -prune \) -o -type f); do
 done
 
 if [ -d src/stactools/package ]; then
-    mv src/stactools/package "src/stactools/$underscore_name"
+    git mv src/stactools/package "src/stactools/$underscore_name"
 fi
 
 echo "Don't forget to manually update setup.cfg and README.md"

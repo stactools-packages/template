@@ -23,7 +23,7 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Screenshots and Shell session dumps**
-If applicable, add session dumpes and/or screenshots to help explain your problem.
+If applicable, add session dumps and/or screenshots to help explain your problem.
 
 > ex. `scripts/lint >> lint_errors.txt`
 

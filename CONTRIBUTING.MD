@@ -13,7 +13,7 @@ suggested deprecation policy for supported python versions.
 
 ## Submitting Pull Requests
 
-Any proposed changes to a existing stactools-packages should be done as pull requests. Please make these
+Any proposed changes to an existing stactools-packages should be done as pull requests. Please make these
 requests against the `main` branch (unless otherwise directed by the dataset maintainer).
 
 Creating a Pull Request will show our PR template, which includes checkbox reminders for a number

@@ -17,6 +17,7 @@ for file in $(find . -not \( -name .git -prune \) -a -type f); do
     sed -i '' -e "s/stactools\.package/stactools.${underscore_name}/g" $file
     sed -i '' -e "s/stactools_package/stactools_${underscore_name}/g" $file
     sed -i '' -e "s;stactools/package;stactools/${underscore_name};g" $file
+    sed -i '' -e "s/package-name/${name}/g" $file
     set -e
 done
 

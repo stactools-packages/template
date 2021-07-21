@@ -1,5 +1,5 @@
 ARG STACTOOLS_VERSION=latest
-FROM stacutils/stactools:${STACTOOLS_VERSION}-dev
+FROM ghcr.io/stac-utils/stactools:${STACTOOLS_VERSION}-dev
 
 WORKDIR /opt/stactools-package
 

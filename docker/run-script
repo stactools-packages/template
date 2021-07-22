@@ -20,7 +20,9 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
-        docker run --rm -v $(pwd):/opt/stactools-ephemeral stactools-ephemeral-script-runner "$@"
+        docker run --rm \
+            -v $(pwd):$DOCKER_WORKDIR \
+            stactools-${DOCKER_REPO}-script-runner "$@"
     fi
     exit
 fi

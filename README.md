@@ -1,14 +1,14 @@
-# stactools-package
+# stactools-ephemeral
 
-- Name: package
-- Package: `stactools.package`
-- PyPI: https://pypi.org/project/stactools-package/
+- Name: ephemeral
+- ephemeral: `stactools.ephemeral`
+- PyPI: https://pypi.org/project/stactools-ephemeral/
 - Owner: @githubusername
 - Dataset homepage: http://example.com
 - STAC extensions used:
   - [proj](https://github.com/stac-extensions/projection/)
 - Extra fields:
-  - `package:custom`: A custom attribute
+  - `ephemeral:custom`: A custom attribute
 
 A short description of the package and its usage.
 
@@ -20,8 +20,7 @@ A short description of the package and its usage.
    Your name will be used on PyPI to publish the package in the stactools namespace, e.g. `stactools-landsat`.
 2. Change into the top-level directory of your package and run `scripts/rename`.
    This will update _most_ of the files in the repository with your new package name.
-   You'll have to manually update `setup.cfg` and `README.md`. 
-3. Update `setup.cfg` with your package name, description, and such.
+3. Update `setup.cfg` with your package description and such.
 4. Rewrite this README to provide information about how to use your package.
 5. Update the LICENSE with your company's information (or whomever holds the copyright).
 6. Run `sphinx-quickstart` in the `docs` directory to create the documentation template.
@@ -41,7 +40,7 @@ A short description of the package and its usage.
 Description of the command line functions
 
 ```bash
-$ stac package create-item source destination
+$ stac ephemeral create-item source destination
 ```
 
-Use `stac package --help` to see all subcommands and options.
+Use `stac ephemeral --help` to see all subcommands and options.

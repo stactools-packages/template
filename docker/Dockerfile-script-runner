@@ -1,6 +1,6 @@
 FROM python:3-buster
 
-WORKDIR /opt/stactools-package
+WORKDIR /opt/stactools-ephemeral
 COPY requirements-dev.txt ./
 RUN pip install -r requirements-dev.txt
 

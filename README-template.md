@@ -1,7 +1,7 @@
 # stactools-ephemeral
 
 - Name: ephemeral
-- ephemeral: `stactools.ephemeral`
+- Package: `stactools.ephemeral`
 - PyPI: https://pypi.org/project/stactools-ephemeral/
 - Owner: @githubusername
 - Dataset homepage: http://example.com

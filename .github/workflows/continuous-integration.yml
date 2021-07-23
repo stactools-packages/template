@@ -91,7 +91,7 @@ jobs:
           STACTOOLS_VERSION=$(python scripts/stactools-version.py)
           echo "stactools_version=$STACTOOLS_VERSION" >> $GITHUB_ENV
           echo "docker_workdir=$DOCKER_WORKDIR" >> $GITHUB_ENV
-          echo "docker_proj_dir_partial=$DOCKER_PROJ_DIR_PARTIAL" >> $GITHUB_ENV
+          echo "docker_namespace_package_dir=$DOCKER_NAMESPACE_PACKAGE_DIR" >> $GITHUB_ENV
       -
         name: Docker meta main
         id: meta-main
@@ -110,7 +110,7 @@ jobs:
           build-args: |
             STACTOOLS_VERSION=${{ env.stactools_version }}
             DOCKER_WORKDIR=${{ env.docker_workdir }}
-            DOCKER_PROJ_DIR_PARTIAL=${{ env.docker_proj_dir_partial }}
+            DOCKER_NAMESPACE_PACKAGE_DIR=${{ env.docker_namespace_package_dir }}
           # Don't try to push if the event is a PR from a fork
           push: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
           tags: ${{ steps.meta-main.outputs.tags }}
@@ -135,7 +135,7 @@ jobs:
           build-args: |
             STACTOOLS_VERSION=${{ env.stactools_version }}
             DOCKER_WORKDIR=${{ env.docker_workdir }}
-            DOCKER_PROJ_DIR_PARTIAL=${{ env.docker_proj_dir_partial }}
+            DOCKER_NAMESPACE_PACKAGE_DIR=${{ env.docker_namespace_package_dir }}
           # Don't try to push if the event is a PR from a fork
           push: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
           tags: ${{ steps.meta-dev.outputs.tags }}

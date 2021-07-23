@@ -59,7 +59,7 @@ jobs:
           STACTOOLS_VERSION=$(python scripts/stactools-version.py)
           echo "stactools_version=$STACTOOLS_VERSION" >> $GITHUB_ENV
           echo "docker_workdir=$DOCKER_WORKDIR" >> $GITHUB_ENV
-          echo "docker_proj_dir_partial=$DOCKER_PROJ_DIR_PARTIAL" >> $GITHUB_ENV
+          echo "docker_namespace_package_dir=$DOCKER_NAMESPACE_PACKAGE_DIR" >> $GITHUB_ENV
       - name: Run rename script if in the template repo
         run: |
           if [[ "$GITHUB_REPOSITORY" == */template ]]; then
@@ -84,7 +84,7 @@ jobs:
           build-args: |
             STACTOOLS_VERSION=${{ env.stactools_version }}
             DOCKER_WORKDIR=${{ env.docker_workdir }}
-            DOCKER_PROJ_DIR_PARTIAL=${{ env.docker_proj_dir_partial }}
+            DOCKER_NAMESPACE_PACKAGE_DIR=${{ env.docker_namespace_package_dir }}
           push: true
           tags: ${{ steps.meta-main.outputs.tags }}
           labels: ${{ steps.meta-main.outputs.labels }}
@@ -108,7 +108,7 @@ jobs:
           build-args: |
             STACTOOLS_VERSION=${{ env.stactools_version }}
             DOCKER_WORKDIR=${{ env.docker_workdir }}
-            DOCKER_PROJ_DIR_PARTIAL=${{ env.docker_proj_dir_partial }}
+            DOCKER_NAMESPACE_PACKAGE_DIR=${{ env.docker_namespace_package_dir }}
           push: true
           tags: ${{ steps.meta-dev.outputs.tags }}
           labels: ${{ steps.meta-dev.outputs.labels }}

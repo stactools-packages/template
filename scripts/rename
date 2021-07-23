@@ -6,7 +6,7 @@ name="$(basename $(cd "$(dirname $(dirname "$0"))"; pwd -P))"
 underscore_name=${name//-/_}
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    sedflags="-i ''"
+    sedflags="-i.original"
 else
     sedflags="-i"
 fi
@@ -30,5 +30,7 @@ done
 if [ -d src/stactools/package ]; then
     git mv src/stactools/package "src/stactools/$underscore_name"
 fi
+
+git clean -fd
 
 echo "Don't forget to manually update setup.cfg and README.md"

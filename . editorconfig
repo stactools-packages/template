@@ -1,0 +1,28 @@
+# https://EditorConfig.org
+
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+[make.bat]
+indent_style = tab
+
+[*.md]
+
+[*.py,setup.cfg]
+
+[coverage.xml]
+indent_style = tab
+
+[*.yml]
+indent_size = 2

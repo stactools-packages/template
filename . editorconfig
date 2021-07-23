@@ -21,8 +21,5 @@ indent_style = tab
 
 [*.py,setup.cfg]
 
-[coverage.xml]
-indent_style = tab
-
 [*.yml]
 indent_size = 2

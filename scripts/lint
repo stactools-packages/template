@@ -19,6 +19,8 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
+        # Text formatting
+        editorconfig-checker
         # Code formatting
         yapf -dpr ${DIRS_TO_CHECK[@]}
         # Lint

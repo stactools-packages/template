@@ -11,6 +11,13 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
 
+[*.ipynb]
+# Content is json, but it seems to be minimally formatted
+indent_size = unset
+
+[{*.json,.ecrc}]
+indent_size = 2
+
 [Makefile]
 indent_style = tab
 
@@ -18,8 +25,9 @@ indent_style = tab
 indent_style = tab
 
 [*.md]
+indent_size = unset
 
-[*.py,setup.cfg]
+[{*.py,setup.cfg}]
 
 [*.yml]
 indent_size = 2

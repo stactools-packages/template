@@ -20,7 +20,7 @@ A short description of the package and its usage.
    Your name will be used on PyPI to publish the package in the stactools namespace, e.g. `stactools-landsat`.
 2. Change into the top-level directory of your package and run `scripts/rename`.
    This will update _most_ of the files in the repository with your new package name.
-   You'll have to manually update `setup.cfg` and `README.md`. 
+   You'll have to manually update `setup.cfg` and `README.md`.
 3. Update `setup.cfg` with your package name, description, and such.
 4. Rewrite this README to provide information about how to use your package.
 5. Update the LICENSE with your company's information (or whomever holds the copyright).

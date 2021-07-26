@@ -1,4 +1,4 @@
-name: stactools-package
+name: stactools-ephemeral
 channels:
   - conda-forge
   - defaults

@@ -2,20 +2,19 @@ import os.path
 from tempfile import TemporaryDirectory
 
 import pystac
-from stactools.package.commands import create_stactoolspackage_command
+from stactools.ephemeral.commands import create_ephemeralcmd_command
 from stactools.testing import CliTestCase
 
 
 class CreateCollectionTest(CliTestCase):
     def create_subcommand_functions(self):
-        return [create_stactoolspackage_command]
+        return [create_ephemeralcmd_command]
 
     def test_create_collection(self):
         with TemporaryDirectory() as tmp_dir:
             # Run your custom create-collection command and validate
             # Example:
-            result = self.run_command(
-                ["stactoolspackage", "create-collection"])
+            result = self.run_command(["ephemeralcmd", "create-collection"])
 
             self.assertEqual(result.exit_code,
                              0,
@@ -32,7 +31,7 @@ class CreateCollectionTest(CliTestCase):
         with TemporaryDirectory() as tmp_dir:
             # Run your custom create-item command and validate
             # Example:
-            result = self.run_command(["stactoolspackage", "create-item"])
+            result = self.run_command(["ephemeralcmd", "create-item"])
             self.assertEqual(result.exit_code,
                              0,
                              msg="\n{}".format(result.output))

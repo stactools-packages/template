@@ -3,7 +3,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 import pystac
-from stactools.package import stac
+from stactools.ephemeral import stac
 
 
 class StacTest(unittest.TestCase):

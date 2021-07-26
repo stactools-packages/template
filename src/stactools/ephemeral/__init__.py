@@ -1,5 +1,5 @@
 import stactools.core
-from stactools.package.stac import create_collection, create_item
+from stactools.ephemeral.stac import create_collection, create_item
 
 __all__ = [create_collection, create_item]
 
@@ -7,8 +7,8 @@ stactools.core.use_fsspec()
 
 
 def register_plugin(registry):
-    from stactools.package import commands
-    registry.register_subcommand(commands.create_stactoolspackage_command)
+    from stactools.ephemeral import commands
+    registry.register_subcommand(commands.create_ephemeralcmd_command)
 
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

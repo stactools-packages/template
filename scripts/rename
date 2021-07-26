@@ -27,11 +27,6 @@ for file in $(find . -not \( -name .git -prune \) -a -type f); do
     set -e
 done
 
-if [ -f README-template.md ]; then
-    git rm README.md
-    git mv README-template.md README.md
-fi
-
 if [ -d src/stactools/ephemeral ]; then
     git mv src/stactools/ephemeral src/stactools/$underscore_name
 fi

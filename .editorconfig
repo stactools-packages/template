@@ -28,6 +28,8 @@ indent_style = tab
 indent_size = unset
 
 [{*.py,setup.cfg}]
+# yapf and black will use indents other than 4 spaces
+indent_size = unset
 
 [*.yml]
 indent_size = 2

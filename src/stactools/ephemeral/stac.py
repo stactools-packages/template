@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 import logging
 
 from shapely.geometry import Polygon
@@ -25,7 +26,7 @@ def create_collection(
     title: str,
     description: str,
     catalog_type: str,
-    providers: list[Provider],
+    providers: List[Provider],
     license: str,
     license_link: Link,
     extent: list,

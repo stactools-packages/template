@@ -4,6 +4,7 @@ set -e
 
 name="$(basename $(cd "$(dirname $(dirname "$0"))"; pwd -P))"
 underscore_name=${name//-/_}
+cmd_name=${name//-/}
 
 for file in $(find . -not \( -name .git -prune \) -a -type f); do
     file_name=$(basename "$file")
@@ -13,6 +14,7 @@ for file in $(find . -not \( -name .git -prune \) -a -type f); do
             continue;;
     esac
     set +e
+    sed -i '' -e "s/stactoolspackage/${cmd_name}/g" $file
     sed -i '' -e "s/stactools-package/stactools-${name}/g" $file
     sed -i '' -e "s/stactools\.package/stactools.${underscore_name}/g" $file
     sed -i '' -e "s/stactools_package/stactools_${underscore_name}/g" $file

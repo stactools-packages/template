@@ -28,16 +28,16 @@ def read_metadata_json(source: str) -> dict:
     return data
 
 
-def create_package_command(cli):
-    """Creates the package command line utility."""
+def create_stactoolspackage_command(cli):
+    """Creates the stactools-package command line utility."""
     @cli.group(
-        "package",
-        short_help=("Commands for working with package"),
+        "stactoolspackage",
+        short_help=("Commands for working with stactools-package"),
     )
-    def package():
+    def stactoolspackage():
         pass
 
-    @package.command(
+    @stactoolspackage.command(
         "create-collection",
         short_help="Creates a STAC collection",
     )
@@ -58,11 +58,11 @@ def create_package_command(cli):
         raise NotImplementedError(
             "The create-collection command has not been developed")
 
-    @package.command("create-item", short_help="Create a STAC item")
+    @stactoolspackage.command("create-item", short_help="Create a STAC item")
     def create_item_command():
         """Creates a STAC Item
         """
         raise NotImplementedError(
             "The create-item command has not been developed")
 
-    return package
+    return stactoolspackage

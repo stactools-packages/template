@@ -1,0 +1,7 @@
+DOCKER_REGISTRY=ghcr.io
+DOCKER_ORG=stactools-packages
+DOCKER_REPO=ephemeral
+DOCKER_TAG=local
+DOCKER_TAG_DEV=local-dev
+DOCKER_WORKDIR=/opt/stactools-ephemeral
+DOCKER_NAMESPACE_PACKAGE_DIR=stactools/ephemeral

@@ -25,6 +25,6 @@ of things.
 
 
 ---
-Attribution:  
+Attribution:
 - https://docs.github.com/en/communities/
 - https://github.com/radiantearth/stac-spec/blob/master/CONTRIBUTING.md

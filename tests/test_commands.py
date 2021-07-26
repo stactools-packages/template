@@ -14,7 +14,8 @@ class CreateCollectionTest(CliTestCase):
         with TemporaryDirectory() as tmp_dir:
             # Run your custom create-collection command and validate
             # Example:
-            result = self.run_command(["stactoolspackage", "create-collection"])
+            result = self.run_command(
+                ["stactoolspackage", "create-collection"])
 
             self.assertEqual(result.exit_code,
                              0,

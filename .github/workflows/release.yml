@@ -53,7 +53,7 @@ jobs:
           registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-            - name: Source build args
+      - name: Source build args
         run: |
           source ./docker_env
           STACTOOLS_VERSION=$(python scripts/stactools-version.py)

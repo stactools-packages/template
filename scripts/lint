@@ -13,6 +13,8 @@ Execute project linters.
 "
 }
 
+EC_EXCLUDE="(__pycache__|.git|.coverage|coverage.xml|.*\.egg-info)"
+
 DIRS_TO_CHECK=("src" "tests" "scripts")
 
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
@@ -20,7 +22,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         usage
     else
         # Text formatting
-        editorconfig-checker
+        editorconfig-checker --exclude "$EC_EXCLUDE"
         # Code formatting
         yapf -dpr ${DIRS_TO_CHECK[@]}
         # Lint

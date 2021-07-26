@@ -6,12 +6,12 @@ name="$(basename $(cd "$(dirname $(dirname "$0"))"; pwd -P))"
 underscore_name=${name//-/_}
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    sedflags="-i ''"
+    sedflags=(-i "")
 else
-    sedflags="-i"
+    sedflags=(-i)
 fi
 
-for file in $(find . -not \( -name .git -prune \) -a -type f); do
+for file in $(find . -not \( -name .git -prune \) -not \( -name __pycache__ -prune \) -a -type f); do
     file_name=$(basename "$file")
     case $file_name in
         CONTRIBUTING.MD|README.md|rename|setup.cfg|publish|installation_and_basic_usage.ipynb)
@@ -19,11 +19,11 @@ for file in $(find . -not \( -name .git -prune \) -a -type f); do
             continue;;
     esac
     set +e
-    sed ${sedflags} -e "s/stactools-package/stactools-${name}/g" $file
-    sed ${sedflags} -e "s/stactools\.package/stactools.${underscore_name}/g" $file
-    sed ${sedflags} -e "s/stactools_package/stactools_${underscore_name}/g" $file
-    sed ${sedflags} -e "s;stactools/package;stactools/${underscore_name};g" $file
-    sed ${sedflags} -e "s/package-name/${name}/g" $file
+    sed "${sedflags[@]}" -e "s/stactools-package/stactools-${name}/g" $file
+    sed "${sedflags[@]}" -e "s/stactools\.package/stactools.${underscore_name}/g" $file
+    sed "${sedflags[@]}" -e "s/stactools_package/stactools_${underscore_name}/g" $file
+    sed "${sedflags[@]}" -e "s;stactools/package;stactools/${underscore_name};g" $file
+    sed "${sedflags[@]}" -e "s/package-name/${name}/g" $file
     set -e
 done
 

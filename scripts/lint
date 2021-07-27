@@ -27,6 +27,9 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         yapf -dpr ${DIRS_TO_CHECK[@]}
         # Lint
         flake8 ${DIRS_TO_CHECK[@]}
-
+        # Type checking
+        mypy --ignore-missing-imports src
+            # When https://github.com/stac-utils/stactools/issues/155 is complete
+            # remove --ingore-missing-imports
     fi
 fi

@@ -1,5 +1,6 @@
 codespell
 coverage
+editorconfig-checker
 flake8
 jupyter
 pylint

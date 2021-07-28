@@ -6,16 +6,16 @@ from pystac import Item, Collection
 logger = logging.getLogger(__name__)
 
 
-def create_stactoolspackage_command(cli):
-    """Creates the stactools-package command line utility."""
+def create_ephemeralcmd_command(cli):
+    """Creates the ephemeral-package command line utility."""
 
     @cli.group(
-        "stactoolspackage", short_help=("Commands for working with stactools-package"),
+        "ephemeralcmd", short_help=("Commands for working with ephemeral-package"),
     )
-    def stactoolspackage():
+    def ephemeralcmd():
         pass
 
-    @stactoolspackage.command(
+    @ephemeralcmd.command(
         "create-collection", short_help="Creates a STAC collection",
     )
     @click.argument("destination")
@@ -31,7 +31,7 @@ def create_stactoolspackage_command(cli):
             "The create-collection command has not been developed"
         )
 
-    @stactoolspackage.command("create-item", short_help="Create a STAC item")
+    @ephemeralcmd.command("create-item", short_help="Create a STAC item")
     @click.argument("source")
     @click.argument("destination")
     def create_item_command(source: str, destination: str) -> Item:
@@ -41,4 +41,4 @@ def create_stactoolspackage_command(cli):
 
         raise NotImplementedError("The create-item command has not been developed")
 
-    return stactoolspackage
+    return ephemeralcmd

@@ -15,11 +15,10 @@ class CommandsTest(CliTestCase):
             # Run your custom create-collection command and validate
 
             # Example:
-            result = self.run_command([
-                "ephemeralcmd",
-                "create-collection",
-                os.path.join(tmp_dir, "destination.json"),
-            ])
+            destination = os.path.join(tmp_dir, "collection.json")
+
+            result = self.run_command(
+                ["ephemeralcmd", "create-collection", destination])
 
             self.assertEqual(result.exit_code,
                              0,
@@ -28,8 +27,9 @@ class CommandsTest(CliTestCase):
             jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
             self.assertEqual(len(jsons), 1)
 
-            collection = pystac.read_file(os.path.join(tmp_dir, jsons[0]))
+            collection = pystac.read_file(destination)
             self.assertEqual(collection.id, "my-collection-id")
+            # self.assertEqual(item.other_attr...
 
             collection.validate()
 
@@ -38,11 +38,12 @@ class CommandsTest(CliTestCase):
             # Run your custom create-item command and validate
 
             # Example:
+            destination = os.path.join(tmp_dir, "collection.json")
             result = self.run_command([
                 "ephemeralcmd",
                 "create-item",
-                "/my/source.x",
-                os.path.join(tmp_dir, "destination.json"),
+                destination,
+                "/path/to/asset.tif",
             ])
             self.assertEqual(result.exit_code,
                              0,
@@ -51,8 +52,8 @@ class CommandsTest(CliTestCase):
             jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
             self.assertEqual(len(jsons), 1)
 
-            item_path = os.path.join(tmp_dir, jsons[0])
-            item = pystac.read_file(item_path)
+            item = pystac.read_file(destination)
             self.assertEqual(item.id, "my-item-id")
+            # self.assertEqual(item.other_attr...
 
             item.validate()

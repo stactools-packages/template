@@ -1,7 +1,5 @@
-import os
 import unittest
 
-import pystac
 from stactools.ephemeral import stac
 
 
@@ -10,6 +8,7 @@ class StacTest(unittest.TestCase):
         # Write tests for each for the creation of a STAC Collection
         # Create the STAC Collection...
         collection = stac.create_collection()
+        collection.set_self_href("")
 
         # Check that it has some required attributes
         self.assertEqual(collection.id, "my-collection-id")
@@ -21,7 +20,7 @@ class StacTest(unittest.TestCase):
     def test_create_item(self):
         # Write tests for each for the creation of STAC Items
         # Create the STAC Item...
-        item = stac.create_item()
+        item = stac.create_item("/path/to/asset.tif")
 
         # Check that it has some required attributes
         self.assertEqual(item.id, "my-item-id")

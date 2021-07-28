@@ -2,9 +2,10 @@
 
 set -e
 
+# name may contain hyphens
 name="$(basename $(cd "$(dirname $(dirname "$0"))"; pwd -P))"
 underscore_name=${name//-/_}
-cmd_name=${name//-/}
+spaceless_name=${name//-/}
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     sedflags=(-i "")
@@ -20,11 +21,11 @@ for file in $(find . -not \( -name .git -prune \) -not \( -name __pycache__ -pru
             continue;;
     esac
     set +e
-    sed "${sedflags[@]}" -e "s/stactoolspackage/${cmd_name}/g" $file
     sed "${sedflags[@]}" -e "s/stactools-ephemeral/stactools-${name}/g" $file
     sed "${sedflags[@]}" -e "s/stactools\.ephemeral/stactools.${underscore_name}/g" $file
     sed "${sedflags[@]}" -e "s/stactools_ephemeral/stactools_${underscore_name}/g" $file
     sed "${sedflags[@]}" -e "s;stactools/ephemeral;stactools/${underscore_name};g" $file
+    sed "${sedflags[@]}" -e "s/ephemeralcmd/${spaceless_name}/g" $file
     sed "${sedflags[@]}" -e "s/ephemeral/${name}/g" $file
     set -e
 done

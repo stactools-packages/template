@@ -8,7 +8,7 @@ stactools.core.use_fsspec()
 
 def register_plugin(registry):
     from stactools.ephemeral import commands
-    registry.register_subcommand(commands.create_stactoolspackage_command)
+    registry.register_subcommand(commands.create_ephemeralcmd_command)
 
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

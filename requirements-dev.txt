@@ -3,6 +3,7 @@ coverage
 editorconfig-checker
 flake8
 jupyter
+mypy
 pylint
 sphinx
 sphinx-autobuild

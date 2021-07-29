@@ -13,7 +13,7 @@ Execute project linters.
 "
 }
 
-EC_EXCLUDE="(__pycache__|.git|.coverage|coverage.xml|.*\.egg-info)"
+EC_EXCLUDE="(__pycache__|.git|.coverage|coverage.xml|.*\.egg-info|.mypy_cache)"
 
 DIRS_TO_CHECK=("src" "tests" "scripts")
 

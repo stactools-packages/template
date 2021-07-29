@@ -1,7 +1,6 @@
 import click
 import logging
 
-from pystac import Item, Collection
 from stactools.ephemeral import stac
 
 logger = logging.getLogger(__name__)
@@ -21,7 +20,7 @@ def create_ephemeralcmd_command(cli):
         short_help="Creates a STAC collection",
     )
     @click.argument("destination")
-    def create_collection_command(destination: str) -> Collection:
+    def create_collection_command(destination: str):
         """Creates a STAC Collection
 
         Args:
@@ -33,10 +32,12 @@ def create_ephemeralcmd_command(cli):
 
         collection.save_object()
 
+        return None
+
     @ephemeralcmd.command("create-item", short_help="Create a STAC item")
     @click.argument("destination")
     @click.argument("source")
-    def create_item_command(destination: str, source: str) -> Item:
+    def create_item_command(destination: str, source: str):
         """Creates a STAC Item
 
         Args:
@@ -46,5 +47,7 @@ def create_ephemeralcmd_command(cli):
         item = stac.create_item(source)
 
         item.save_object(dest_href=destination)
+
+        return None
 
     return ephemeralcmd

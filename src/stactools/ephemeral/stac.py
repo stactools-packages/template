@@ -7,6 +7,7 @@ from pystac import (
     Item,
     Asset,
     Provider,
+    ProviderRole,
     Extent,
     SpatialExtent,
     TemporalExtent,
@@ -33,7 +34,11 @@ def create_collection() -> Collection:
     providers = [
         Provider(
             name="The OS Community",
-            roles=["producer", "processor", "host"],
+            roles=[
+                ProviderRole("producer"),
+                ProviderRole("processor"),
+                ProviderRole("host"),
+            ],
             url="https://github.com/stac-utils/stactools",
         )
     ]
@@ -42,7 +47,7 @@ def create_collection() -> Collection:
     demo_time = utc.localize(datetime.now())
 
     extent = Extent(
-        SpatialExtent([[-180, 90, 180, -90]]),
+        SpatialExtent([[-180., 90., 180., -90.]]),
         TemporalExtent([demo_time, None]),
     )
 

@@ -1,7 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
-from pytz import utc
 from pystac import (
     Collection,
     Item,
@@ -44,7 +43,7 @@ def create_collection() -> Collection:
     ]
 
     # Time must be in UTC
-    demo_time = utc.localize(datetime.now())
+    demo_time = datetime.now(tz=timezone.utc)
 
     extent = Extent(
         SpatialExtent([[-180., 90., 180., -90.]]),
@@ -92,7 +91,7 @@ def create_item(asset_href: str) -> Item:
     }
 
     # Time must be in UTC
-    demo_time = utc.localize(datetime.now())
+    demo_time = datetime.now(tz=timezone.utc)
 
     item = Item(
         id="my-item-id",

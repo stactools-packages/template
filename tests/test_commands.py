@@ -42,8 +42,8 @@ class CommandsTest(CliTestCase):
             result = self.run_command([
                 "ephemeralcmd",
                 "create-item",
-                destination,
                 "/path/to/asset.tif",
+                destination,
             ])
             self.assertEqual(result.exit_code,
                              0,

@@ -35,14 +35,14 @@ def create_ephemeralcmd_command(cli):
         return None
 
     @ephemeralcmd.command("create-item", short_help="Create a STAC item")
-    @click.argument("destination")
     @click.argument("source")
-    def create_item_command(destination: str, source: str):
+    @click.argument("destination")
+    def create_item_command(source: str, destination: str):
         """Creates a STAC Item
 
         Args:
-            destination (str): An HREF for the STAC Collection
             source (str): HREF of the Asset associated with the Item
+            destination (str): An HREF for the STAC Collection
         """
         item = stac.create_item(source)
 

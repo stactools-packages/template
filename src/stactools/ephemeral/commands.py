@@ -7,10 +7,10 @@ logger = logging.getLogger(__name__)
 
 
 def create_ephemeralcmd_command(cli):
-    """Creates the ephemeral-package command line utility."""
+    """Creates the stactools-ephemeral command line utility."""
     @cli.group(
         "ephemeralcmd",
-        short_help=("Commands for working with ephemeral-package"),
+        short_help=("Commands for working with stactools-ephemeral"),
     )
     def ephemeralcmd():
         pass

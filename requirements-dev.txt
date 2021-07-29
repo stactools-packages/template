@@ -10,5 +10,6 @@ sphinx-autobuild
 sphinx-click
 sphinxcontrib-fulltoc
 sphinxcontrib-napoleon
+types-click
 types-pytz
 yapf

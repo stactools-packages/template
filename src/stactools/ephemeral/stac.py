@@ -34,9 +34,8 @@ def create_collection() -> Collection:
         Provider(
             name="The OS Community",
             roles=[
-                ProviderRole("producer"),
-                ProviderRole("processor"),
-                ProviderRole("host"),
+                ProviderRole.PRODUCER, ProviderRole.PROCESSOR,
+                ProviderRole.HOST
             ],
             url="https://github.com/stac-utils/stactools",
         )

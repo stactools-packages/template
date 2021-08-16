@@ -2,8 +2,9 @@ import os.path
 from tempfile import TemporaryDirectory
 
 import pystac
-from stactools.ephemeral.commands import create_ephemeralcmd_command
 from stactools.testing import CliTestCase
+
+from stactools.ephemeral.commands import create_ephemeralcmd_command
 
 
 class CommandsTest(CliTestCase):

@@ -1,18 +1,8 @@
-from datetime import datetime, timezone
 import logging
+from datetime import datetime, timezone
 
-from pystac import (
-    Collection,
-    Item,
-    Asset,
-    Provider,
-    ProviderRole,
-    Extent,
-    SpatialExtent,
-    TemporalExtent,
-    CatalogType,
-    MediaType,
-)
+from pystac import (Asset, CatalogType, Collection, Extent, Item, MediaType,
+                    Provider, ProviderRole, SpatialExtent, TemporalExtent)
 from pystac.extensions.projection import ProjectionExtension
 
 logger = logging.getLogger(__name__)

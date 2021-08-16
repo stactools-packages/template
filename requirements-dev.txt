@@ -2,6 +2,7 @@ codespell
 coverage
 editorconfig-checker
 flake8
+isort
 jupyter
 mypy
 pylint

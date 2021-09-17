@@ -39,7 +39,7 @@ class CommandsTest(CliTestCase):
             # Run your custom create-item command and validate
 
             # Example:
-            destination = os.path.join(tmp_dir, "collection.json")
+            destination = os.path.join(tmp_dir, "item.json")
             result = self.run_command([
                 "ephemeralcmd",
                 "create-item",

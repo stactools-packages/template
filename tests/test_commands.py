@@ -8,6 +8,7 @@ from stactools.ephemeral.commands import create_ephemeralcmd_command
 
 
 class CommandsTest(CliTestCase):
+
     def create_subcommand_functions(self):
         return [create_ephemeralcmd_command]
 

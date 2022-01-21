@@ -1,11 +1,12 @@
 codespell
-coverage
 editorconfig-checker
 flake8
 isort
 jupyter
 mypy
 pylint
+pytest
+pytest-cov
 sphinx
 sphinx-autobuild
 sphinx-click

@@ -13,3 +13,4 @@ Please explain the changes you made here.
 - [ ] Tests pass (run `scripts/test`).
 - [ ] Documentation has been updated to reflect changes, if applicable.
 - [ ] Changes are added to the [CHANGELOG](../CHANGELOG.md).
+- [ ] Examples are added to `examples/`

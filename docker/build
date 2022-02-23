@@ -14,7 +14,7 @@ function usage() {
 
     echo -n \
         "Usage: $(basename "$0")
-Build stactools containers. Must be run from the repository root
+Builds project containers. Must be run from the repository root
 
 Options:
 --pull    Attempt to pull upstream images before building

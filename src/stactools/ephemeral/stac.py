@@ -36,7 +36,7 @@ def create_collection() -> Collection:
 
     extent = Extent(
         SpatialExtent([[-180., 90., 180., -90.]]),
-        TemporalExtent([demo_time, None]),
+        TemporalExtent([[demo_time, None]]),
     )
 
     collection = Collection(

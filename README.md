@@ -12,6 +12,5 @@ This is a template repo used for creating new packages for `stactools`.
    This will update _most_ of the files in the repository with your new package name.
 3. Update `setup.cfg` with your package description and such.
 4. Update the LICENSE with your company's information (or whomever holds the copyright).
-5. Install `requirements-dev` into your virtual environment and run `pre-commit install` to set up the git hook scripts.
 5. Add example Items (and Collections and Catalogs, if included) to an `examples/` directory.
 6. Delete this file, and rename `README-template.md` to `README.md`. Update your new README to provide information about how to use your package.

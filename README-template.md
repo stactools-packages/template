@@ -1,7 +1,6 @@
 # stactools-ephemeral
 
 [![PyPI](https://img.shields.io/pypi/v/stactools-ephemeral)](https://pypi.org/project/stactools-ephemeral/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/ephemeral/main?filepath=docs/installation_and_basic_usage.ipynb)
 
 - Name: ephemeral
 - Package: `stactools.ephemeral`
@@ -15,19 +14,46 @@
 
 A short description of the package and its usage.
 
-## Examples
-
-### STAC objects
+## STAC Examples
 
 - [Collection](examples/collection.json)
 - [Item](examples/item/item.json)
 
-### Command-line usage
+## Installation
+```bash
+pip install stactools-ephemeral
+```
+
+
+## Command-line Usage
 
 Description of the command line functions
 
-```bash
-$ stac ephemeral create-item source destination
+```shell
+stac ephemeral create-item source destination
 ```
 
 Use `stac ephemeral --help` to see all subcommands and options.
+
+## Contributing
+
+We use [pre-commit](https://pre-commit.com/) to check any changes.
+To set up your development environment:
+
+```shell
+pip install -e .
+pip install -r requirements-dev.txt
+pre-commit install
+```
+
+To check all files:
+
+```shell
+pre-commit run --all-files
+```
+
+To run the tests:
+
+```shell
+pytest -vv
+```

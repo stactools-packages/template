@@ -14,4 +14,5 @@ RUN pip install -r requirements-dev.txt \
     && rm -r /opt/conda/lib/python$PYTHON_VERSION/site-packages/$DOCKER_NAMESPACE_PACKAGE_DIR
 
 COPY . ./
+RUN git init
 RUN pip install -e .

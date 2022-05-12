@@ -17,16 +17,15 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
+        ./scripts/format
         ./scripts/lint
 
         codespell -I .codespellignore -f \
             scripts/* \
             *.py ./**/*.py \
-            *.md \
-            docs/*.rst docs/**/*.rst \
-            docs/*.ipynb docs/**/*.ipynb
+            *.md
 
-        pytest --cov=stactools ${COVERAGE_DIRS}
+        pytest --cov=stactools tests
         coverage xml
     fi
 fi

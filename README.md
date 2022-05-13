@@ -16,3 +16,4 @@ This is a template repo used for creating new packages for `stactools`.
 6. Update `docs/installation_and_basic_usage.ipynb` to provide an interactive notebook to help users get started. Include the following badge at the top of the README to launch the notebook: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/template/main?filepath=docs/installation_and_basic_usage.ipynb). Be sure to modify the badge href to match your package repo.
 7. Add example Items (and Collections and Catalogs, if included) to a `examples/` directory.
 8. Delete this file, and rename `README-template.md` to `README.md`. Update your new README to provide information about how to use your package.
+

@@ -21,17 +21,8 @@ repos:
     hooks:
       - id: mypy
         files: "^src/.*\\.py$|^tests/.*\\.py$|^scripts/.*\\.py$"
-        args:
-          - --namespace-packages
-          - --explicit-package-bases
-          - --ignore-missing-imports
-          - --strict
-          - --show-error-codes
         additional_dependencies:
           - click != 8.1.0
-          - pystac
-          - types-requests
-          - types-setuptools
           - stactools
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1

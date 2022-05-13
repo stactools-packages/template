@@ -13,5 +13,4 @@ RUN pip install . \
     && rm -r /opt/conda/lib/python$PYTHON_VERSION/site-packages/$DOCKER_NAMESPACE_PACKAGE_DIR
 
 COPY src ./src
-RUN git init
 RUN pip install .

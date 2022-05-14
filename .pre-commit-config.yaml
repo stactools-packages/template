@@ -20,7 +20,6 @@ repos:
     rev: v0.942
     hooks:
       - id: mypy
-        files: "^src/.*\\.py$|^tests/.*\\.py$|^scripts/.*\\.py$"
         additional_dependencies:
           - click != 8.1.0
           - stactools

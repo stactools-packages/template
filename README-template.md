@@ -20,17 +20,16 @@ A short description of the package and its usage.
 - [Item](examples/item/item.json)
 
 ## Installation
-```bash
+```shell
 pip install stactools-ephemeral
 ```
-
 
 ## Command-line Usage
 
 Description of the command line functions
 
 ```shell
-stac ephemeral create-item source destination
+$ stac ephemeral create-item source destination
 ```
 
 Use `stac ephemeral --help` to see all subcommands and options.
@@ -41,19 +40,19 @@ We use [pre-commit](https://pre-commit.com/) to check any changes.
 To set up your development environment:
 
 ```shell
-pip install -e .
-pip install -r requirements-dev.txt
-pre-commit install
+$ pip install -e .
+$ pip install -r requirements-dev.txt
+$ pre-commit install
 ```
 
 To check all files:
 
 ```shell
-pre-commit run --all-files
+$ pre-commit run --all-files
 ```
 
 To run the tests:
 
 ```shell
-pytest -vv
+$ pytest -vv
 ```

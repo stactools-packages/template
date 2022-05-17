@@ -4,8 +4,7 @@ from stactools.ephemeral import stac
 
 
 class StacTest(unittest.TestCase):
-
-    def test_create_collection(self):
+    def test_create_collection(self) -> None:
         # Write tests for each for the creation of a STAC Collection
         # Create the STAC Collection...
         collection = stac.create_collection()
@@ -18,7 +17,7 @@ class StacTest(unittest.TestCase):
         # Validate
         collection.validate()
 
-    def test_create_item(self):
+    def test_create_item(self) -> None:
         # Write tests for each for the creation of STAC Items
         # Create the STAC Item...
         item = stac.create_item("/path/to/asset.tif")

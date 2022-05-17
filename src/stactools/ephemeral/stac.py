@@ -1,8 +1,18 @@
 import logging
 from datetime import datetime, timezone
 
-from pystac import (Asset, CatalogType, Collection, Extent, Item, MediaType,
-                    Provider, ProviderRole, SpatialExtent, TemporalExtent)
+from pystac import (
+    Asset,
+    CatalogType,
+    Collection,
+    Extent,
+    Item,
+    MediaType,
+    Provider,
+    ProviderRole,
+    SpatialExtent,
+    TemporalExtent,
+)
 from pystac.extensions.projection import ProjectionExtension
 
 logger = logging.getLogger(__name__)
@@ -23,10 +33,7 @@ def create_collection() -> Collection:
     providers = [
         Provider(
             name="The OS Community",
-            roles=[
-                ProviderRole.PRODUCER, ProviderRole.PROCESSOR,
-                ProviderRole.HOST
-            ],
+            roles=[ProviderRole.PRODUCER, ProviderRole.PROCESSOR, ProviderRole.HOST],
             url="https://github.com/stac-utils/stactools",
         )
     ]
@@ -35,8 +42,8 @@ def create_collection() -> Collection:
     demo_time = datetime.now(tz=timezone.utc)
 
     extent = Extent(
-        SpatialExtent([[-180., 90., 180., -90.]]),
-        TemporalExtent([demo_time, None]),
+        SpatialExtent([[-180.0, 90.0, 180.0, -90.0]]),
+        TemporalExtent([[demo_time, None]]),
     )
 
     collection = Collection(
@@ -73,10 +80,8 @@ def create_item(asset_href: str) -> Item:
     }
 
     demo_geom = {
-        "type":
-        "Polygon",
-        "coordinates": [[[-180, -90], [180, -90], [180, 90], [-180, 90],
-                         [-180, -90]]],
+        "type": "Polygon",
+        "coordinates": [[[-180, -90], [180, -90], [180, 90], [-180, 90], [-180, -90]]],
     }
 
     # Time must be in UTC

@@ -45,7 +45,7 @@ def create_ephemeralcmd_command(cli: Group) -> Command:
 
         Args:
             source (str): HREF of the Asset associated with the Item
-            destination (str): An HREF for the STAC Collection
+            destination (str): An HREF for the STAC Item
         """
         item = stac.create_item(source)
 

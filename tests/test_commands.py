@@ -22,14 +22,14 @@ class CommandsTest(CliTestCase):
 
             result = self.run_command(f"ephemeralcmd create-collection {destination}")
 
-            self.assertEqual(result.exit_code, 0, msg="\n{}".format(result.output))
+            assert result.exit_code == 0, "\n{}".format(result.output)
 
             jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
-            self.assertEqual(len(jsons), 1)
+            assert len(jsons) == 1
 
             collection = pystac.read_file(destination)
-            self.assertEqual(collection.id, "my-collection-id")
-            # self.assertEqual(item.other_attr...
+            assert collection.id == "my-collection-id"
+            # assert collection.other_attr...
 
             collection.validate()
 
@@ -43,13 +43,13 @@ class CommandsTest(CliTestCase):
             result = self.run_command(
                 f"ephemeralcmd create-item {infile} {destination}"
             )
-            self.assertEqual(result.exit_code, 0, msg="\n{}".format(result.output))
+            assert result.exit_code == 0, "\n{}".format(result.output)
 
             jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
-            self.assertEqual(len(jsons), 1)
+            assert len(jsons) == 1
 
             item = pystac.read_file(destination)
-            self.assertEqual(item.id, "my-item-id")
-            # self.assertEqual(item.other_attr...
+            assert item.id == "my-item-id"
+            # assert item.other_attr...
 
             item.validate()

@@ -11,6 +11,7 @@
   - [proj](https://github.com/stac-extensions/projection/)
 - Extra fields:
   - `ephemeral:custom`: A custom attribute
+- STAC browser link: https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/ephemeral/main/examples/collection.json
 
 A short description of the package and its usage.
 

@@ -6,15 +6,11 @@ if [[ -n "${STACTOOLS_DEBUG}" ]]; then
     set -x
 fi
 
-set -a # export all variables
-source docker_env
-set +a
-
 function usage() {
 
     echo -n \
         "Usage: $(basename "$0")
-Builds project containers. Must be run from the repository root
+Builds project containers. Must be run from the repository root.
 
 Options:
 --pull    Attempt to pull upstream images before building
@@ -28,7 +24,6 @@ do
         --help)
         usage
         exit 0
-        shift
         ;;
 
         --pull)
@@ -43,23 +38,15 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         usage
     else
         docker build $PULL \
-            --build-arg DOCKER_WORKDIR \
-            -t stactools-${DOCKER_REPO}-script-runner \
-            -f docker/Dockerfile-script-runner .
-        STACTOOLS_VERSION=$(docker/run-script python scripts/stactools-version.py)
-        echo "Building with stactools version $STACTOOLS_VERSION"
+            -t stactools-packages/ephemeral:latest \
+            -f docker/Dockerfile \
+            --target builder \
+            .
         docker build $PULL \
-            --build-arg STACTOOLS_VERSION \
-            --build-arg DOCKER_WORKDIR \
-            --build-arg DOCKER_NAMESPACE_PACKAGE_DIR \
-            -t $DOCKER_REGISTRY/$DOCKER_ORG/$DOCKER_REPO:$DOCKER_TAG \
-            -f docker/Dockerfile .
-        docker build $PULL \
-            --build-arg STACTOOLS_VERSION \
-            --build-arg DOCKER_WORKDIR \
-            --build-arg DOCKER_NAMESPACE_PACKAGE_DIR \
-            -t $DOCKER_REGISTRY/$DOCKER_ORG/$DOCKER_REPO:$DOCKER_TAG_DEV \
-            -f docker/Dockerfile-dev .
+            -t stactools-packages/ephemeral:dev \
+            -f docker/Dockerfile \
+            --target dev-builder \
+            .
     fi
     exit
 fi

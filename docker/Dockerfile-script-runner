@@ -1,9 +1,0 @@
-FROM python:3-buster
-
-ARG DOCKER_WORKDIR
-WORKDIR $DOCKER_WORKDIR
-COPY requirements-dev.txt ./
-RUN pip install -r requirements-dev.txt
-
-COPY scripts/ scripts/
-COPY docker/ docker/

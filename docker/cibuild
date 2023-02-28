@@ -6,8 +6,6 @@ if [[ -n "${STACTOOLS_DEBUG}" ]]; then
     set -x
 fi
 
-source docker_env
-
 function usage() {
     echo -n \
         "Usage: $(basename "$0")
@@ -16,8 +14,12 @@ Runs CI in the docker dev container.
 }
 
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
-    ./docker/build --pull
+    docker build $PULL \
+        -t stactools-packages/ephemeral:dev \
+        -f docker/Dockerfile \
+        --target dev-builder \
+        .
     docker run --rm \
         --entrypoint scripts/cibuild \
-        $DOCKER_REGISTRY/$DOCKER_ORG/$DOCKER_REPO:$DOCKER_TAG_DEV
+        stactools-packages/ephemeral:dev
 fi

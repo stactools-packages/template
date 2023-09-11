@@ -8,9 +8,7 @@ Please explain the changes you made here.
 
 **PR checklist:**
 
-- [ ] Code is formatted (run `scripts/format`).
-- [ ] Code lints properly (run `scripts/lint`).
 - [ ] Tests pass (run `scripts/test`).
 - [ ] Documentation has been updated to reflect changes, if applicable.
 - [ ] Examples have been updated to reflect changes, if applicable
-- [ ] Changes are added to the [CHANGELOG](../CHANGELOG.md).
+- [ ] Changes are added to the [CHANGELOG](../CHANGELOG.md), if applicable

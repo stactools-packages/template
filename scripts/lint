@@ -9,7 +9,7 @@ fi
 function usage() {
     echo -n \
         "Usage: $(basename "$0")
-Execute project linters.
+Execute project linters and fomatters.
 "
 }
 
@@ -17,9 +17,6 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
-        # Lint
-        pre-commit run flake8 --all-files
-        # Type checking
-        pre-commit run mypy --all-files
+        pre-commit run --all-files
     fi
 fi

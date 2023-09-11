@@ -31,3 +31,4 @@ repos:
     rev: v0.33.0
     hooks:
       - id: markdownlint
+        language_version: "18.17.1"

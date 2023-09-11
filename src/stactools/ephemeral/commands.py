@@ -2,7 +2,6 @@ import logging
 
 import click
 from click import Command, Group
-
 from stactools.ephemeral import stac
 
 logger = logging.getLogger(__name__)

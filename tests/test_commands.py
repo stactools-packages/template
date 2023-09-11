@@ -4,9 +4,8 @@ from typing import Callable, List
 
 import pystac
 from click import Command, Group
-from stactools.testing.cli_test import CliTestCase
-
 from stactools.ephemeral.commands import create_ephemeralcmd_command
+from stactools.testing.cli_test import CliTestCase
 
 
 class CommandsTest(CliTestCase):

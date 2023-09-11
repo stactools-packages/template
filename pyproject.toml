@@ -1,3 +1,42 @@
+[project]
+name = "stactools-ephemeral"
+version = "0.1.0"
+description = "PROVIDE DESCRIPTION HERE"
+readme = "README.md"
+authors = [{ name = "Your name here", email = "your-email@example.com" }]
+maintainers = [{ name = "Your name here", email = "your-email@example.com" }]
+keywords = ["stactools", "pystac", "catalog", "STAC"]
+license = { text = "Apache-2.0" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.8"
+dependencies = ["stactools>=0.4.0"]
+
+[project.optional-dependencies]
+dev = [
+    "black~=23.9",
+    "codespell~=2.2",
+    "flake8~=6.1",
+    "isort~=5.12",
+    "mypy~=1.5",
+    "pre-commit~=3.4",
+    "pytest~=7.4",
+    "pytest-cov~=4.1",
+]
+
+[project.urls]
+Github = "https://github.com/stactools-packges/ephemeral"
+Issues = "https://github.com/stactools-packges/ephemeral/issues"
+
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"

@@ -10,11 +10,10 @@ This is a template repo used for creating new packages for `stactools`.
    which case the name for Python imports will be the underscored version, e.g.
    `landsat-8` goes to `stactools.landsat_8`.  Your name will be used on PyPI to
    publish the package in the stactools namespace, e.g. `stactools-landsat`.
-2. Install the development requirements (`pip install -r requirements-dev.txt`)
-   and pre-commit (`pre-commit install`).
-3. Change into the top-level directory of your package and run `scripts/rename`.
+2. Change into the top-level directory of your package and run `scripts/rename`.
    This will update _most_ of the files in the repository with your new package name.
-4. Update `setup.cfg` with your package description and such.
+3. Update `pyproject.toml` with your package description and such.
+4. Install with the development requirements (`pip install -e '.[dev]'`).
 5. Update the LICENSE with your company's information (or whomever holds the copyright).
 6. Edit or replace the existing functions to create stac Items and Collections
    for your dataset.

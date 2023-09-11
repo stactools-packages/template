@@ -42,8 +42,7 @@ We use [pre-commit](https://pre-commit.com/) to check any changes.
 To set up your development environment:
 
 ```shell
-pip install -e .
-pip install -r requirements-dev.txt
+pip install -e '.[dev]'
 pre-commit install
 ```
 

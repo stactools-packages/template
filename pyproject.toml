@@ -43,5 +43,12 @@ build-backend = "setuptools.build_meta"
 [tool.isort]
 profile = "black"
 
+[tool.mypy]
+explicit_package_bases = true
+namespace_packages = true
+show_error_codes = true
+strict = true
+mypy_path = "src"
+
 [tool.ruff]
 select = ["E", "F", "I"]

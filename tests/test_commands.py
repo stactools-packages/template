@@ -1,54 +1,36 @@
-import os.path
-from tempfile import TemporaryDirectory
-from typing import Callable, List
+from pathlib import Path
 
-import pystac
-from click import Command, Group
+from click import Group
+from click.testing import CliRunner
+from pystac import Collection, Item
 from stactools.ephemeral.commands import create_ephemeralcmd_command
-from stactools.testing.cli_test import CliTestCase
+
+from . import test_data
+
+command = create_ephemeralcmd_command(Group())
 
 
-class CommandsTest(CliTestCase):
-    def create_subcommand_functions(self) -> List[Callable[[Group], Command]]:
-        return [create_ephemeralcmd_command]
+def test_create_collection(tmp_path: Path) -> None:
+    # Smoke test for the command line create-collection command
+    #
+    # Most checks should be done in test_stac.py::test_create_collection
 
-    def test_create_collection(self) -> None:
-        with TemporaryDirectory() as tmp_dir:
-            # Run your custom create-collection command and validate
+    path = str(tmp_path / "collection.json")
+    runner = CliRunner()
+    result = runner.invoke(command, ["create-collection", path])
+    assert result.exit_code == 0, "\n{}".format(result.output)
+    collection = Collection.from_file(path)
+    collection.validate()
 
-            # Example:
-            destination = os.path.join(tmp_dir, "collection.json")
 
-            result = self.run_command(f"ephemeralcmd create-collection {destination}")
-
-            assert result.exit_code == 0, "\n{}".format(result.output)
-
-            jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
-            assert len(jsons) == 1
-
-            collection = pystac.read_file(destination)
-            assert collection.id == "my-collection-id"
-            # assert collection.other_attr...
-
-            collection.validate()
-
-    def test_create_item(self) -> None:
-        with TemporaryDirectory() as tmp_dir:
-            # Run your custom create-item command and validate
-
-            # Example:
-            infile = "/path/to/asset.tif"
-            destination = os.path.join(tmp_dir, "item.json")
-            result = self.run_command(
-                f"ephemeralcmd create-item {infile} {destination}"
-            )
-            assert result.exit_code == 0, "\n{}".format(result.output)
-
-            jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
-            assert len(jsons) == 1
-
-            item = pystac.read_file(destination)
-            assert item.id == "my-item-id"
-            # assert item.other_attr...
-
-            item.validate()
+def test_create_item(tmp_path: Path) -> None:
+    # Smoke test for the command line create-item command
+    #
+    # Most checks should be done in test_stac.py::test_create_item
+    asset_href = test_data.get_path("data/asset.tif")
+    path = str(tmp_path / "item.json")
+    runner = CliRunner()
+    result = runner.invoke(command, ["create-item", asset_href, path])
+    assert result.exit_code == 0, "\n{}".format(result.output)
+    item = Item.from_file(path)
+    item.validate()

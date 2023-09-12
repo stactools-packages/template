@@ -1,71 +1,59 @@
-import logging
 from datetime import datetime, timezone
 
+import stactools.core.create
 from pystac import (
-    Asset,
-    CatalogType,
     Collection,
     Extent,
     Item,
-    MediaType,
-    Provider,
-    ProviderRole,
     SpatialExtent,
     TemporalExtent,
 )
-from pystac.extensions.projection import ProjectionExtension
-
-logger = logging.getLogger(__name__)
 
 
 def create_collection() -> Collection:
-    """Create a STAC Collection
+    """Creates a STAC Collection.
 
-    This function includes logic to extract all relevant metadata from
-    an asset describing the STAC collection and/or metadata coded into an
-    accompanying constants.py file.
-
-    See `Collection<https://pystac.readthedocs.io/en/latest/api.html#collection>`_.
+    This function should create a collection for this dataset. See `the STAC
+    specification
+    <https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md>`_
+    for information about collection fields, and
+    `Collection<https://pystac.readthedocs.io/en/latest/api.html#collection>`_
+    for information about the PySTAC class.
 
     Returns:
         Collection: STAC Collection object
     """
-    providers = [
-        Provider(
-            name="The OS Community",
-            roles=[ProviderRole.PRODUCER, ProviderRole.PROCESSOR, ProviderRole.HOST],
-            url="https://github.com/stac-utils/stactools",
-        )
-    ]
-
-    # Time must be in UTC
-    demo_time = datetime.now(tz=timezone.utc)
-
     extent = Extent(
         SpatialExtent([[-180.0, 90.0, 180.0, -90.0]]),
-        TemporalExtent([[demo_time, None]]),
+        TemporalExtent([[datetime.now(tz=timezone.utc), None]]),
     )
 
     collection = Collection(
-        id="my-collection-id",
-        title="A dummy STAC Collection",
-        description="Used for demonstration purposes",
-        license="CC-0",
-        providers=providers,
+        id="example-collection",
+        title="Example collection",
+        description="An example collection",
         extent=extent,
-        catalog_type=CatalogType.RELATIVE_PUBLISHED,
+        extra_fields={"custom_attribute": "foo"},
     )
-
     return collection
 
 
 def create_item(asset_href: str) -> Item:
-    """Create a STAC Item
+    """Creates a STAC item from a raster asset.
 
-    This function should include logic to extract all relevant metadata from an
-    asset, metadata asset, and/or a constants.py file.
+    This example function uses :py:func:`stactools.core.utils.create_item` to
+    generate an example item.  Datasets should customize the item with
+    dataset-specific information, e.g.  extracted from metadata files.
 
-    See `Item<https://pystac.readthedocs.io/en/latest/api.html#item>`_.
+    See `the STAC specification
+    <https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md>`_
+    for information about an item's fields, and
+    `Item<https://pystac.readthedocs.io/en/latest/api.html#item>`_ for
+    information on the PySTAC class.
+
+    This function should be updated to take all hrefs needed to build the item.
+    It is an anti-pattern to assume that related files (e.g. metadata) are in
+    the same directory as the primary file.
 
     Args:
         asset_href (str): The HREF pointing to an asset associated with the item
@@ -73,45 +61,7 @@ def create_item(asset_href: str) -> Item:
     Returns:
         Item: STAC Item object
     """
-
-    properties = {
-        "title": "A dummy STAC Item",
-        "description": "Used for demonstration purposes",
-    }
-
-    demo_geom = {
-        "type": "Polygon",
-        "coordinates": [[[-180, -90], [180, -90], [180, 90], [-180, 90], [-180, -90]]],
-    }
-
-    # Time must be in UTC
-    demo_time = datetime.now(tz=timezone.utc)
-
-    item = Item(
-        id="my-item-id",
-        properties=properties,
-        geometry=demo_geom,
-        bbox=[-180, 90, 180, -90],
-        datetime=demo_time,
-        stac_extensions=[],
-    )
-
-    # It is a good idea to include proj attributes to optimize for libs like stac-vrt
-    proj_attrs = ProjectionExtension.ext(item, add_if_missing=True)
-    proj_attrs.epsg = 4326
-    proj_attrs.bbox = [-180, 90, 180, -90]
-    proj_attrs.shape = [1, 1]  # Raster shape
-    proj_attrs.transform = [-180, 360, 0, 90, 0, 180]  # Raster GeoTransform
-
-    # Add an asset to the item (COG for example)
-    item.add_asset(
-        "image",
-        Asset(
-            href=asset_href,
-            media_type=MediaType.COG,
-            roles=["data"],
-            title="A dummy STAC Item COG",
-        ),
-    )
-
+    item = stactools.core.create.item(asset_href)
+    item.id = "example-item"
+    item.properties["custom_attribute"] = "foo"
     return item

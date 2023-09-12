@@ -11,6 +11,3 @@ def register_plugin(registry: Registry) -> None:
     from stactools.ephemeral import commands
 
     registry.register_subcommand(commands.create_ephemeralcmd_command)
-
-
-__version__ = "0.1.0"

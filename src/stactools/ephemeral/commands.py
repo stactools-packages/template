@@ -26,15 +26,11 @@ def create_ephemeralcmd_command(cli: Group) -> Command:
         """Creates a STAC Collection
 
         Args:
-            destination (str): An HREF for the Collection JSON
+            destination: An HREF for the Collection JSON
         """
         collection = stac.create_collection()
-
         collection.set_self_href(destination)
-
         collection.save_object()
-
-        return None
 
     @ephemeralcmd.command("create-item", short_help="Create a STAC item")
     @click.argument("source")
@@ -43,13 +39,10 @@ def create_ephemeralcmd_command(cli: Group) -> Command:
         """Creates a STAC Item
 
         Args:
-            source (str): HREF of the Asset associated with the Item
-            destination (str): An HREF for the STAC Item
+            source: HREF of the Asset associated with the Item
+            destination: An HREF for the STAC Item
         """
         item = stac.create_item(source)
-
         item.save_object(dest_href=destination)
-
-        return None
 
     return ephemeralcmd

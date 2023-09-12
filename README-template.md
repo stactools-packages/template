@@ -1,6 +1,7 @@
 # stactools-ephemeral
 
-[![PyPI](https://img.shields.io/pypi/v/stactools-ephemeral)](https://pypi.org/project/stactools-ephemeral/)
+[![PyPI](https://img.shields.io/pypi/v/stactools-ephemeral?style=for-the-badge)](https://pypi.org/project/stactools-ephemeral/)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/stactools-packages/ephemeral/continuous-integration.yml?style=for-the-badge)
 
 - Name: ephemeral
 - Package: `stactools.ephemeral`
@@ -15,7 +16,7 @@
 
 A short description of the package and its usage.
 
-## STAC Examples
+## STAC examples
 
 - [Collection](examples/collection.json)
 - [Item](examples/item/item.json)
@@ -26,7 +27,7 @@ A short description of the package and its usage.
 pip install stactools-ephemeral
 ```
 
-## Command-line Usage
+## Command-line usage
 
 Description of the command line functions
 
@@ -56,4 +57,10 @@ To run the tests:
 
 ```shell
 pytest -vv
+```
+
+If you've updated the STAC metadata output, update the examples:
+
+```shell
+scripts/update-examples
 ```

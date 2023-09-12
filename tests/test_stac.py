@@ -1,28 +1,24 @@
 from stactools.ephemeral import stac
 
+from . import test_data
+
 
 def test_create_collection() -> None:
-    # Write tests for each for the creation of a STAC Collection
-    # Create the STAC Collection...
+    # This function should be updated to exercise the attributes of interest on
+    # the collection
+
     collection = stac.create_collection()
-    collection.set_self_href("")
-
-    # Check that it has some required attributes
-    assert collection.id == "my-collection-id"
-    # self.assertEqual(collection.other_attr...
-
-    # Validate
+    collection.set_self_href(None)  # required for validation to pass
+    assert collection.id == "example-collection"
+    assert collection.extra_fields["custom_attribute"] == "foo"
     collection.validate()
 
 
 def test_create_item() -> None:
-    # Write tests for each for the creation of STAC Items
-    # Create the STAC Item...
-    item = stac.create_item("/path/to/asset.tif")
+    # This function should be updated to exercise the attributes of interest on
+    # a typical item
 
-    # Check that it has some required attributes
-    assert item.id == "my-item-id"
-    # self.assertEqual(item.other_attr...
-
-    # Validate
+    item = stac.create_item(test_data.get_path("data/asset.tif"))
+    assert item.id == "example-item"
+    assert item.properties["custom_attribute"] == "foo"
     item.validate()

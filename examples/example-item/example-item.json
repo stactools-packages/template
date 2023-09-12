@@ -1,0 +1,87 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "example-item",
+  "properties": {
+    "proj:epsg": 32621,
+    "proj:transform": [
+      100.01126757344893,
+      0.0,
+      373185.0,
+      0.0,
+      -100.01126757344893,
+      8286015.0
+    ],
+    "proj:shape": [
+      2667,
+      2658
+    ],
+    "custom_attribute": "foo",
+    "datetime": "2023-09-12T11:48:03.199913Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -52.916275,
+          72.229798
+        ],
+        [
+          -52.301599,
+          74.613784
+        ],
+        [
+          -61.287624,
+          74.622043
+        ],
+        [
+          -60.726346,
+          72.236891
+        ],
+        [
+          -52.916275,
+          72.229798
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Example collection"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Example collection"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Example collection"
+    }
+  ],
+  "assets": {
+    "data": {
+      "href": "../../tests/data/asset.tif",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "bbox": [
+    -61.287624,
+    72.229798,
+    -52.301599,
+    74.622043
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+  ],
+  "collection": "example-collection"
+}

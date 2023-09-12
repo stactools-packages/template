@@ -1,0 +1,42 @@
+{
+  "type": "Collection",
+  "id": "example-collection",
+  "stac_version": "1.0.0",
+  "description": "An example collection",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Example collection"
+    },
+    {
+      "rel": "item",
+      "href": "./example-item/example-item.json",
+      "type": "application/json"
+    }
+  ],
+  "custom_attribute": "foo",
+  "title": "Example collection",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -61.287624,
+          72.229798,
+          -52.301599,
+          74.622043
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2023-09-12T11:48:03.199913Z",
+          "2023-09-12T11:48:03.199913Z"
+        ]
+      ]
+    }
+  },
+  "license": "proprietary"
+}

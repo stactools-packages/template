@@ -48,7 +48,7 @@ def create_item(asset_href: str) -> Item:
     See `the STAC specification
     <https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md>`_
     for information about an item's fields, and
-    `Item<https://pystac.readthedocs.io/en/latest/api.html#item>`_ for
+    `Item<https://pystac.readthedocs.io/en/latest/api/pystac.html#pystac.Item>`_ for
     information on the PySTAC class.
 
     This function should be updated to take all hrefs needed to build the item.

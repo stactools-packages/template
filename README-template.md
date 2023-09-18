@@ -13,6 +13,7 @@
 - Extra fields:
   - `ephemeral:custom`: A custom attribute
 - [Browse the example in human-readable form](https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/ephemeral/main/examples/collection.json)
+- [Browse a notebook demonstrating the example item and collection](https://github.com/stactools-packages/ephemeral/tree/main/docs/example.ipynb)
 
 A short description of the package and its usage.
 

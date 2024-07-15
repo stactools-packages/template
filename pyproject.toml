@@ -35,8 +35,8 @@ dev = [
 docs = ["pystac~=1.10", "ipykernel~=6.29", "jinja2~=3.1"]
 
 [project.urls]
-Github = "https://github.com/stactools-packges/ephemeral"
-Issues = "https://github.com/stactools-packges/ephemeral/issues"
+Github = "https://github.com/stactools-packages/ephemeral"
+Issues = "https://github.com/stactools-packages/ephemeral/issues"
 
 [build-system]
 requires = ["setuptools", "wheel"]

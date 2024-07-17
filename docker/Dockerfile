@@ -19,7 +19,7 @@ RUN apt-get -y -q update \
 RUN python -m venv /opt/venv
 RUN pip install . \
     && ls /opt/venv \
-    && rm -r /opt/venv/lib/python3.11/site-packages/stactools/ephemeral
+    && rm -r /opt/venv/lib/python3.12/site-packages/stactools/ephemeral
 
 
 FROM dependencies as builder

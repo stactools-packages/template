@@ -30,7 +30,7 @@ dev = [
     "pytest-cov~=6.0",
     "pytest~=8.2",
     "requests~=2.32",
-    "ruff==0.8.1",
+    "ruff==0.8.2",
 ]
 docs = ["pystac~=1.10", "ipykernel~=6.29", "jinja2~=3.1"]
 

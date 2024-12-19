@@ -43,8 +43,6 @@ jobs:
         uses: astral-sh/setup-uv@v4
         with:
           version: "0.5.*" 
-          enable-cache: true
-          cache-dependency-glob: "uv.lock"
       - name: Set up Conda with Python ${{ matrix.python-version }}
         uses: conda-incubator/setup-miniconda@v3
         with:

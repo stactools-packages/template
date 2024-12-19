@@ -20,6 +20,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         --target dev-builder \
         .
     docker run --rm \
-        --entrypoint scripts/cibuild \
-        stactools-packages/ephemeral:dev
+        --entrypoint uv \
+        stactools-packages/ephemeral:dev \
+        sync
 fi

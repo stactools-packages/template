@@ -21,9 +21,8 @@ classifiers = [
 requires-python = ">=3.9"
 dependencies = ["stactools>=0.4.0"]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "black~=24.4",
     "codespell~=2.3",
     "mypy~=1.10",
     "pre-commit~=4.0",
@@ -42,9 +41,6 @@ Issues = "https://github.com/stactools-packages/ephemeral/issues"
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.isort]
-profile = "black"
-
 [tool.mypy]
 explicit_package_bases = true
 namespace_packages = true
@@ -53,4 +49,4 @@ strict = true
 mypy_path = "src"
 
 [tool.ruff]
-select = ["E", "F", "I"]
+lint.select = ["E", "F", "I"]

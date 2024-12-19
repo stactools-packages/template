@@ -1,6 +1,5 @@
 from datetime import datetime, timezone
 
-import stactools.core.create
 from pystac import (
     Collection,
     Extent,
@@ -8,6 +7,8 @@ from pystac import (
     SpatialExtent,
     TemporalExtent,
 )
+
+import stactools.core.create
 
 
 def create_collection() -> Collection:

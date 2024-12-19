@@ -39,12 +39,12 @@ jobs:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-${{ hashFiles('**/environment.yml') }}
           restore-keys: ${{ runner.os }}-conda-
-      - name: Set up pip cache
-        uses: actions/cache@v4
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('pyproject.toml') }}
-          restore-keys: ${{ runner.os }}-pip-
+          version: "0.5.*" 
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
       - name: Set up Conda with Python ${{ matrix.python-version }}
         uses: conda-incubator/setup-miniconda@v3
         with:
@@ -52,5 +52,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Update Conda's environemnt
         run: conda env update -f environment.yml -n test
+      - name: Install package
+        run: uv sync
       - name: Execute linters and test suites
-        run: ./scripts/cibuild
+        run: uv run ./scripts/test

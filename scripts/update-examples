@@ -3,8 +3,9 @@
 import shutil
 from pathlib import Path
 
-import stactools.ephemeral.stac
 from pystac import CatalogType
+
+import stactools.ephemeral.stac
 
 root = Path(__file__).parents[1]
 examples = root / "examples"
